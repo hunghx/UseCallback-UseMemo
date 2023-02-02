@@ -1,23 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import Form from './components/Form';
+import List from './components/List';
+import { useState } from 'react';
 
 function App() {
+  const [work, abcxyzdfbhdsfbhds]= useState(["đi học","đi chơi", "Tuấn Anh đi học muộn"]);
+  const handleDelete = (id)=>{
+    let listWork = work.filter((curent,index)=> index!==id);
+
+    abcxyzdfbhdsfbhds(listWork)
+  }
+  const handleAdd = (data)=>{
+    abcxyzdfbhdsfbhds(work => [...work,data])
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Form handleAdd={handleAdd}/>
+      <List handleDelete={handleDelete} list={work}/>
     </div>
   );
 }
